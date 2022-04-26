@@ -5,23 +5,25 @@
 ```bash
 python -m venv airflow
 source airflow/bin/activate
+pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
 #### Inicie o banco de dados do airflow e o webserver
 Lembre-se de que o Airflow irá rodar na porta 8080, garanta que ela esteja disponível, ou altere nas configurações do airflow a porta.
+- Exporte a variavel de ambiente do path para o airflow
+`export AIRFLOW_HOME="$(pwd)"`
 
 - Inicie o db do airflow
 	`airflow db init`
 
-- Exporte a variavel de ambiente do path para o airflow
-`export AIRFLOW_HOME="$(pwd)"`
 
-- Inicie o airflow scheduler
+- Execute o webserver
+`airflow webserver`
+
+- Em outro terminal execute o scheduler (ative a virtualenv novamente)
 `airflow scheduler`
 
-- Em outro terminal execute o webserver (ative a virtualenv novamente)
-`airflow webserver`
 
 
 ### Acesso a interface Airflow
