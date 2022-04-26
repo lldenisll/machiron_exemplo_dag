@@ -3,10 +3,14 @@
 #### Crie uma virtualenv e instale os requirements
 
 ```bash
-python -m venv airflow
+sudo adduser airflow
+sudo usermod -aG sudo airflow
+su - airflow
+python3 -m venv airflow
 source airflow/bin/activate
 pip install --upgrade pip
-pip install -r requirements.txt
+pip3 install -r requirements.txt
+mkdir dags
 ```
 
 #### Inicie o banco de dados do airflow e o webserver
